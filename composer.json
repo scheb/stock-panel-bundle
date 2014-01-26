@@ -1,26 +1,26 @@
 {
-	"name" : "scheb/stock-panel-bundle",
-	"description" : "Keep track of your stock portfolio",
-	"license" : "MIT",
-	"type" : "symfony-bundle",
-	"authors" : [{
-			"name" : "Christian Scheb",
-			"email" : "me@christianscheb.de"
-		}
-	],
-	"keywords" : [
-		"stock",
-		"finance"
-	],
+    "name" : "scheb/stock-panel-bundle",
+    "description" : "Keep track of your stock portfolio",
+    "license" : "MIT",
+    "type" : "symfony-bundle",
+    "authors" : [{
+            "name" : "Christian Scheb",
+            "email" : "me@christianscheb.de"
+        }
+    ],
+    "keywords" : [
+        "stock",
+        "finance"
+    ],
     "require": {
-		"php" : ">=5.3",
+        "php" : ">=5.3",
         "symfony/symfony": "~2.1",
         "sonata-project/intl-bundle": "2.2.*",
-		"braincrafted/bootstrap-bundle": "2.0.*",
+        "braincrafted/bootstrap-bundle": "2.0.*",
         "twbs/bootstrap": "3.0.0",
         "components/jquery":  "1.10.*",
-		"leafo/lessphp": "0.4.*",
-		"scheb/yahoo-finance-api": "~1.1"
+        "leafo/lessphp": "0.4.*",
+        "scheb/yahoo-finance-api": "~1.1"
     },
     "autoload": {
         "psr-4": {
