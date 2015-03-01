@@ -1,0 +1,21 @@
+<head>
+<title>{% block title %}Stock Panel{% endblock %}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" media="screen">
+{% stylesheets
+    'bundles/schebstockpanel/css/style.less'
+    output='css/stock-panel.css'
+%}
+<link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
+<script type="text/javascript" src="{{ asset("js/jquery.js") }}"></script>
+<script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
+{% javascripts
+    'bundles/schebstockpanel/js/jquery.popupwindow.js'
+    'bundles/schebstockpanel/js/loader.js'
+    output='js/stock-panel.js'
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
+</head>
