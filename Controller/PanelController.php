@@ -19,6 +19,21 @@ class PanelController extends Controller
 
 
     /**
+     * Show the stock panel
+     * @Route("/charts", name="stock_charts")
+     */
+    public function chartsAction()
+    {
+        $stockProvider = $this->get("scheb_stock_panel.stock_provider");
+        $stockProvider->updateStocks();
+        $stocks = $stockProvider->getStocks();
+        return $this->render("SchebStockPanelBundle:Panel:charts.html.twig", array(
+            'stocks' => $stocks,
+        ));
+    }
+
+
+    /**
      * Force stock update
      * @Route("/update", name="stock_update")
      */
