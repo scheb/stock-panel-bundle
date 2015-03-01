@@ -85,7 +85,12 @@ class Stock
      */
     private $updatedAt;
 
-
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="displayChart", type="boolean")
+     */
+    private $displayChart = true;
 
     /**
      * Init the object
@@ -94,6 +99,7 @@ class Stock
     {
         $this->createdAt = new \DateTime();
     }
+
 
 
     ////////////////////////////////////////////////////////////////////////////////////////// CONVENIENCE
@@ -338,4 +344,22 @@ class Stock
         return $this;
     }
 
+    /**
+     * @return boolean
+     */
+    public function isDisplayChart()
+    {
+        return $this->displayChart;
+    }
+
+    /**
+     * @param boolean $displayChart
+     *
+     * @return Stock
+     */
+    public function setDisplayChart($displayChart)
+    {
+        $this->displayChart = $displayChart;
+        return $this;
+    }
 }

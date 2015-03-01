@@ -19,6 +19,7 @@ class StockType extends AbstractType
             ->add("currency", "choice", array('choices' => $currencies))
             ->add("initialPrice")
             ->add("quantity")
+            ->add("displayChart", null, array('required' => false))
         ;
     }
 
