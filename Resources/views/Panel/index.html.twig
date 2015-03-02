@@ -5,6 +5,7 @@
 
 
 {% block header %}
+{{ parent() }}
 <nav>
 <ul>
 <li><a href="{{ path("stock_search") }}" class="btn btn-default btn-lg btn-search"><span class="glyphicon glyphicon-search"></span> Search</a></li>
