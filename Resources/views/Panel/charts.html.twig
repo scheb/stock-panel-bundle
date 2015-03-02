@@ -10,6 +10,7 @@
 <ul>
 <li><button class="btn btn-primary btn-lg btn-refresh"><span class="glyphicon glyphicon-refresh"></span> Refresh</button></li>
 <li><a href="{{ path("stock_panel") }}" class="btn btn-default btn-lg btn-dashboard"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+<li><a class="btn btn-default btn-lg btn-privacy"><span class="glyphicon glyphicon-eye-open"></span> Privacy</a></li>
 </ul>
 </nav>
 {% endblock %}
@@ -20,9 +21,10 @@
     {% for stock in stocks if stock.displayChart %}
     <div class="col-sm-3 box-chart">
         <div class="box-inner">
-            {% if stock.profit is not null %}<p class="profit pull-right {% if stock.profit < 0 %}down{% elseif stock.profit > 0 %}up{% endif %}"><span class="direction"></span>{{ stock.profit|number_format_currency(stock.currency) }} ({{ stock.profitPercent|number_format_percent({'fraction_digits': 2}) }})</p>{% endif %}
+            <p class="profit pull-right {% if stock.currentChange < 0 %}down{% elseif stock.currentChange > 0 %}up{% endif %}"><span class="direction"></span>{{ stock.currentChange|number_format_currency(stock.currency) }} {{ stock.currentChangePercent|number_format_percent({'fraction_digits': 2}) }}</p>
             <h2>{{ stock.name }}</h2>
             <div class="chart" style="background-image:url('http://chart.finance.yahoo.com/z?s={{ stock.symbol }}&t=5d&q=l&l=on&z=s&l=off');"></div>
+            {% if stock.profit is not null %}<p class="profit text-right privacy {% if stock.profit < 0 %}down{% elseif stock.profit > 0 %}up{% endif %}">{{ stock.profit|number_format_currency(stock.currency) }} ({{ stock.profitPercent|number_format_percent({'fraction_digits': 2}) }})</p>{% endif %}
         </div>
     </div>
     {% endfor %}

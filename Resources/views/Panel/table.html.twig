@@ -33,16 +33,16 @@
 
 <td>{% if stock.initialPrice is not null %}
 <span>{{ stock.initialPrice|number_format_currency(stock.currency) }}</span>
-{% if stock.investment %}<span>{{ stock.investment|number_format_currency(stock.currency) }}</span>{% endif %}
+{% if stock.investment %}<span class="privacy">{{ stock.investment|number_format_currency(stock.currency) }}</span>{% endif %}
 {% else %}&ndash;{% endif %}</td>
 
 <td>{% if stock.currentPrice is not null %}
 <span>{{ stock.currentPrice|number_format_currency(stock.currency) }}</span>
-{% if stock.currentValue %}<span>{{ stock.currentValue|number_format_currency(stock.currency) }}</span>{% endif %}
+{% if stock.currentValue %}<span class="privacy">{{ stock.currentValue|number_format_currency(stock.currency) }}</span>{% endif %}
 {% else %}&ndash;{% endif %}</td>
 
 {% if stock.profit is not null %}<td class="{% if stock.profit < 0 %}down{% elseif stock.profit > 0 %}up{% endif %}">
-<span><span class="direction"></span>{{ stock.profit|number_format_currency(stock.currency) }}</span>
+<span class="privacy">{{ stock.profit|number_format_currency(stock.currency) }}</span>
 <span>{{ stock.profitPercent|number_format_percent({'fraction_digits': 2}) }}</span>
 </td>{% else %}<td>&ndash;</td>{% endif %}
 
