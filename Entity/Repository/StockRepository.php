@@ -25,4 +25,15 @@ class StockRepository extends EntityRepository
         return $index;
     }
 
+    /**
+     * Get DateTime of last update
+     * @return \DateTime
+     */
+    public function getLastUpdate()
+    {
+        $qb = $this->createQueryBuilder("s");
+        $qb->select("MAX(s.updatedAt)");
+        $lastUpdate = $qb->getQuery()->getSingleScalarResult();
+        return $lastUpdate ? new \DateTime($lastUpdate) : new \DateTime("-1 day");
+    }
 }

@@ -42,9 +42,24 @@ class StockPriceProvider
 
     /**
      * Return all stocks with prices updated
+     * @return array
      */
-    public function getStocks()
+    public function getStocksAndUpdate()
     {
+        if ($this->hasToUpdate()) {
+            $this->updateStocks();
+        }
+
+        return $this->getStocks();
+    }
+
+
+
+    /**
+     * Return all stocks
+     * @return array
+     */
+    public function getStocks() {
         $stocks = $this->stockRepo->getAll();
         return $stocks;
     }
@@ -94,6 +109,16 @@ class StockPriceProvider
             $this->em->persist($stock);
         }
         $this->em->flush();
+    }
+
+
+    /**
+     * Check if stocks need to be updated
+     */
+    public function hasToUpdate()
+    {
+        $timeout = new \DateTime("-5 minutes");
+        return $this->stockRepo->getLastUpdate() < $timeout;
     }
 
 
