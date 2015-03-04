@@ -15,7 +15,7 @@ class PanelController extends Controller
     public function indexAction()
     {
         $stockProvider = $this->get("scheb_stock_panel.stock_provider");
-        $stocks = $stockProvider->getStocks();
+        $stocks = $stockProvider->getStocksAndUpdate();
         return $this->render("SchebStockPanelBundle:Panel:index.html.twig", array(
             'stocks' => $stocks,
         ));
@@ -30,7 +30,7 @@ class PanelController extends Controller
     public function chartsAction()
     {
         $stockProvider = $this->get("scheb_stock_panel.stock_provider");
-        $stocks = $stockProvider->getStocks();
+        $stocks = $stockProvider->getStocksAndUpdate();
         return $this->render("SchebStockPanelBundle:Panel:charts.html.twig", array(
             'stocks' => $stocks,
         ));
@@ -44,7 +44,7 @@ class PanelController extends Controller
     public function updateAction()
     {
         $stockProvider = $this->get("scheb_stock_panel.stock_provider");
-        $stocks = $stockProvider->getStocks();
+        $stocks = $stockProvider->getStocksAndUpdate();
         return $this->render("SchebStockPanelBundle:Panel:table.html.twig", array(
             'stocks' => $stocks,
             'privacyMode' => true,
