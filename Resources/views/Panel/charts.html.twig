@@ -21,7 +21,7 @@
     {% for stock in stocks if stock.displayChart %}
     <div class="col-sm-3 box-chart">
         <div class="box-inner">
-            <p class="profit pull-right {% if stock.currentChange < 0 %}down{% elseif stock.currentChange > 0 %}up{% endif %}"><span class="direction"></span>{{ stock.currentChange|number_format_currency(stock.currency) }} {{ stock.currentChangePercent|number_format_percent({'fraction_digits': 2}) }}</p>
+            <p class="profit pull-right {% if stock.currentChange < 0 %}down{% elseif stock.currentChange > 0 %}up{% endif %}"><span class="direction"></span>{{ stock.currentChange|number_format_currency(stock.currency) }} ({{ stock.currentChangePercent|number_format_percent({'fraction_digits': 2}) }})</p>
             <h2>{{ stock.name }}</h2>
             <div class="chart" style="background-image:url('http://chart.finance.yahoo.com/z?s={{ stock.symbol }}&t=5d&q=l&l=on&z=s&l=off');"></div>
             {% if stock.profit is not null %}<p class="profit text-right privacy {% if stock.profit < 0 %}down{% elseif stock.profit > 0 %}up{% endif %}">{{ stock.profit|number_format_currency(stock.currency) }} ({{ stock.profitPercent|number_format_percent({'fraction_digits': 2}) }})</p>{% endif %}
