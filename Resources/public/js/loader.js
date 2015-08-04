@@ -6,7 +6,6 @@ $(document).ready(function() {
 	});
 
     var setPrivacy = function(isEnabled) {
-        console.log("setPrivacy", isEnabled);
         $.cookie('privacy', isEnabled ? 1 : 0, { expires: 360 });
         if (isEnabled) {
             $(".privacy").hide();
@@ -19,13 +18,10 @@ $(document).ready(function() {
     };
 
     var togglePrivacy = function() {
-        console.log($.cookie('privacy'));
         if ($.cookie('privacy') == "1") {
-            console.log("set false");
             setPrivacy(false);
         }
         else {
-            console.log("set true");
             setPrivacy(true);
         }
     };
