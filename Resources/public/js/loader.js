@@ -28,4 +28,15 @@ $(document).ready(function() {
 
     $(".btn-privacy").click(togglePrivacy);
     setPrivacy($.cookie('privacy') == "1");
+
+    // Charts overview only
+    $('#period-tabs a').click(function (e) {
+        // e.preventDefault();
+        var period = $(this).attr('data-period');
+        $('#stock-charts .chart').each(function () {
+            var imageUrl = $(this).attr('data-image-url').replace(/\{period\}/, period);
+            console.log(this, imageUrl);
+            $(this).css('background-image', 'url(' + imageUrl + ')');
+        });
+    });
 });
